@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CamMove : MonoBehaviour
 {
-
+    /*this script contains the firstperson viewing of the camera*/
     public float sensitivity = 300f;
     public Transform player;
 

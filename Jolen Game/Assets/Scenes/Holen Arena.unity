@@ -1680,7 +1680,7 @@ MonoBehaviour:
   throwForce: 70
   throwUpwardForce: 0
   playerName: Player 1
-  time: 15
+  time: 16
   turn: 15
   score: 0
   throwCount: 1
@@ -2715,7 +2715,7 @@ MonoBehaviour:
   throwForce: 70
   throwUpwardForce: 0
   playerName: Player 2
-  time: 15
+  time: 16
   turn: 15
   score: 0
   throwCount: 1
@@ -3746,12 +3746,6 @@ MonoBehaviour:
   playerName: {fileID: 1701002101}
   notifs: {fileID: 1429155678}
   components: {fileID: 1798186662}
-  winnerName: 
-  winnerScore: 0
-  gameOver: 0
-  draw: 0
-  turnCount: 0
-  countdown: 5
 --- !u!4 &1995029261
 Transform:
   m_ObjectHideFlags: 0

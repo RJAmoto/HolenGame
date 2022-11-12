@@ -5,12 +5,11 @@ using UnityEngine;
 public class Marble : MonoBehaviour
 {
     float lifetime = 1.2f;
-    // Start is called before the first frame update
+
     bool exit = false;
 
     bool scored = false;
    
-    // Update is called once per frame
     void Update()
     {
         if (exit)

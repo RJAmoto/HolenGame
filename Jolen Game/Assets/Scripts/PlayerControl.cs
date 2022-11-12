@@ -6,6 +6,9 @@ using TMPro;
 public class PlayerControl : MonoBehaviour
 {
 
+
+    /*this script contains the controls, behavior and attributes of the player*/
+
     public GameObject marble;
 
     public Transform Camera;
@@ -39,6 +42,9 @@ public class PlayerControl : MonoBehaviour
     {
         if (isPlaying) {
             cam.SetActive(true);
+
+            //function for movement
+
             float x = Input.GetAxis("Horizontal");
             float z = Input.GetAxis("Vertical");
 
@@ -46,6 +52,8 @@ public class PlayerControl : MonoBehaviour
 
             controller.Move(move * speed * Time.deltaTime);
 
+
+            //firing marble
 
             if (Input.GetMouseButtonDown(0)&&throwCount >= 1)
             {
@@ -62,6 +70,7 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
+    //the countdown timer that starts at 15 seconds
     public void timer()
     {
         time -= 1 * Time.deltaTime;
@@ -69,10 +78,11 @@ public class PlayerControl : MonoBehaviour
         if (time <= 0)
         {
             time = 0;
-            turn -= 1;
             endTurn = true;
         }
     }
+
+    /*firing mechanism, it ensures that the player will not fire inside the circle.*/
     public void flick()
     {
         if (hasEnteredCircle)
@@ -112,7 +122,7 @@ public class PlayerControl : MonoBehaviour
     public void resetThrow()
     {
         throwCount = 1;
-        time = 15;
+        time = 15.5f;
         endTurn = false;
     }
 
