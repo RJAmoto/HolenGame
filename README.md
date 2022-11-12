@@ -5,8 +5,8 @@ This project is an examination for my application at Shoor. The project has feat
 ### Controls
 
 The basic controls for walking is WASD and mouse left button to fire the marble.
-You sent
-###Mechanics
+
+### Mechanics
 
 1. The player throw/flicks/tap his holen to hit other holen inside the circle.
 
