@@ -45,7 +45,6 @@ public class GamePlay : MonoBehaviour
     void Update()
     {
 
-        Debug.Log(draw);
         if (!gameOver) {
             
             for (int a = 0; a < players.Length; a++)
@@ -205,19 +204,15 @@ public class GamePlay : MonoBehaviour
 
         for (int a = 0; a < players.Length; a++)
         {
-            
-            Debug.Log("Scores: "+players[a].score);
 
             if (players[a].score > score)
             {
-                Debug.Log("not draw");
                 score = players[a].score;
                 name = players[a].playerName;
                 draw = false;
             }
             else if (players[a].score == score)
             {
-                Debug.Log("draw");
                score = players[a].score;
                 draw = true;
             }
