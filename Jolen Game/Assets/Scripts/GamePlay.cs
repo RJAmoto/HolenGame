@@ -26,7 +26,7 @@ public class GamePlay : MonoBehaviour
     int winnerScore;
 
     bool gameOver;
-    bool draw;
+    bool draw = false;
 
     bool clear = true;
 
@@ -44,8 +44,9 @@ public class GamePlay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!gameOver) {
 
+        Debug.Log(draw);
+        if (!gameOver) {
             
             for (int a = 0; a < players.Length; a++)
             {
@@ -67,15 +68,17 @@ public class GamePlay : MonoBehaviour
 
                 if (players[a].turn <= 0 && !gameOver)
                 {
-                    playerScores();
+
                     gameOver = true;
+                    playerScores();
+
                     if (!draw) {
                         notifs.SetText(winnerName + " is the Winner, scored " + winnerScore);
                         notifs.fontSize = 36;
                         anim.SetTrigger("win");
                         components.SetActive(false);
                     }
-                    else 
+                    else if(draw)
                     {
                         notifs.SetText("Draw");
                         notifs.fontSize = 36;
@@ -202,17 +205,24 @@ public class GamePlay : MonoBehaviour
 
         for (int a = 0; a < players.Length; a++)
         {
+            
+            Debug.Log("Scores: "+players[a].score);
+
             if (players[a].score > score)
             {
+                Debug.Log("not draw");
                 score = players[a].score;
                 name = players[a].playerName;
+                draw = false;
             }
             else if (players[a].score == score)
             {
+                Debug.Log("draw");
+               score = players[a].score;
                 draw = true;
             }
         }
-
+        
         winnerName = name;
         winnerScore = score;
 
