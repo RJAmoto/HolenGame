@@ -26,7 +26,7 @@ public class GamePlay : MonoBehaviour
     int winnerScore;
 
     bool gameOver;
-    bool draw = false;
+    bool draw;
 
     bool clear = true;
 
@@ -188,7 +188,6 @@ public class GamePlay : MonoBehaviour
                 marbles[b].GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
                 marbles[b].GetComponent<Rigidbody>().drag = 0;
             }
-
         }
     }
 
@@ -205,22 +204,17 @@ public class GamePlay : MonoBehaviour
         for (int a = 0; a < players.Length; a++)
         {
 
+
+            Debug.Log("Highest"+players[a].score);
+
             if (players[a].score > score)
             {
                 score = players[a].score;
                 name = players[a].playerName;
-                draw = false;
-            }
-            else if (players[a].score == score)
-            {
-               score = players[a].score;
-                draw = true;
             }
         }
         
         winnerName = name;
         winnerScore = score;
-
-
     }
 }
