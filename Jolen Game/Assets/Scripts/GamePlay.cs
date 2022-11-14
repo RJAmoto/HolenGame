@@ -22,23 +22,23 @@ public class GamePlay : MonoBehaviour
 
     public GameObject components;
 
-    string winnerName;
-    int winnerScore;
+    public string winnerName;
+    public int winnerScore;
 
-    bool gameOver;
-    bool draw;
+    public bool gameOver;
+    public bool draw;
 
-    bool clear = true;
+    public bool clear = true;
 
-    int turnCount;
+    public int turnCount;
 
-    float countdown = 5;
+    public float countdown = 5;
     // Start is called before the first frame update
     void Start()
     {
         notifs.fontSize = 0;
         gameOver = false;
-        draw = false;
+        draw = true;
     }
 
     // Update is called once per frame
@@ -68,8 +68,8 @@ public class GamePlay : MonoBehaviour
                 if (players[a].turn <= 0 && !gameOver)
                 {
 
-                    gameOver = true;
                     playerScores();
+                    isDraw();
 
                     if (!draw) {
                         notifs.SetText(winnerName + " is the Winner, scored " + winnerScore);
@@ -83,7 +83,8 @@ public class GamePlay : MonoBehaviour
                         notifs.fontSize = 36;
                         anim.SetTrigger("win");
                         components.SetActive(false);
-                    } 
+                    }
+                    gameOver = true;
                 }
             }
 
@@ -204,17 +205,29 @@ public class GamePlay : MonoBehaviour
         for (int a = 0; a < players.Length; a++)
         {
 
-
-            Debug.Log("Highest"+players[a].score);
-
             if (players[a].score > score)
             {
                 score = players[a].score;
                 name = players[a].playerName;
+                draw = false;
             }
         }
         
         winnerName = name;
         winnerScore = score;
+    }
+
+    public void isDraw()
+    {
+        for (int a = 0; a < players.Length; a++)
+        {
+            for (int b = 0; b < players.Length; b++)
+            {
+                if (players[a].score != players[b].score)
+                {
+                    draw = false;
+                }
+            }
+        }
     }
 }
